@@ -1,0 +1,21 @@
+﻿@model dynamic
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html manifest="@Url.Action("Manifest")">
+<head>
+    <title>title</title>
+    <script src=@Url.Content("~/Scripts/main.js")></script>
+</head>
+<body>
+<div>
+    <img id="logo" src="@Url.Content("~/Content/images/logo_online.png")" />
+    This is where it starts
+    @Html.ActionLink("Report", "Report")
+</div>
+</body>
+</html>
