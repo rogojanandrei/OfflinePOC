@@ -26,6 +26,17 @@ namespace TestManifest
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            bundles.Add(
+                new ScriptBundle("~/bundles/js/angular")
+                    .Include("~/Scripts/angular.js"));
+            bundles.Add(
+                new ScriptBundle("~/bundles/js/highcharts")
+                    .Include("~/Scripts/highcharts.js"));
+            bundles.Add(
+                new ScriptBundle("~/bundles/js/offlineScripts")
+                    .Include("~/Scripts/chart.module.js")
+                    .Include("~/Scripts/chart.component.js"));
         }
     }
 }

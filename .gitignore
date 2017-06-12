@@ -1,0 +1,59 @@
+
+#ignore thumbnails created by windows
+Thumbs.db
+#Ignore files build by Visual Studio
+*.obj
+*.pdb
+*.user
+*.aps
+*.pch
+*.vspscc
+*_i.c
+*_p.c
+*.ncb
+*.suo
+*.tlb
+*.tlh
+*.bak
+*.cache
+*.ilk
+*.log
+[Bb]in
+[Dd]ebug*/
+*.lib
+*.sbr
+obj/
+[Rr]elease*/
+_ReSharper*/
+[Tt]est[Rr]esult*
+license.config
+src/web/.idea/
+src/commerce/App_Data/
+src/web/App_Data/
+
+# ImageResize.NET Disk Cache, we need the config file, but not the cached images
+!src/web/App_Data/diskcache/Web.config
+
+# NuGet Packages Directory is not committed
+packages/*
+
+# But the config is - with default VS settings, this will download missing packages
+!packages/repositories.config
+
+# Enable "build/" folder in the NuGet Packages folder since NuGet packages use it for MSBuild targets
+!packages/build/
+
+!lib/Epistars/*.dll
+
+# Ignore everything but the readme from the database folder
+# We do not distribute the databases
+!db/*
+!db/readme.md
+BSI.Episerver.sln.ide/
+.vs/*
+!db/backups/**
+/src/Presentation/BSI.Episerver.Web/App_Data/Search/ECApplication/ECApplication/catalog
+/src/Presentation/BSI.Episerver.Web/App_Data/Mails
+/src/Presentation/BSI.Episerver.Web/App_Data/blobs
+/src/Tests/BSI.Episerver.Tests/FakesAssemblies
+/src/Presentation/BSI.ImageServer/imagecache
