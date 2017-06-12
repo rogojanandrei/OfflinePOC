@@ -1,13 +1,20 @@
 ﻿window.addEventListener("offline",
     function(e) {
-        var img = document.getElementById("logo");
-        img.setAttribute("src", img.getAttribute("data-offline"));
+        updateUIStatus(false);
     },
     false);
 
 window.addEventListener("online",
     function(e) {
-        var img = document.getElementById("logo");
-        img.setAttribute("src", img.getAttribute("data-online"));
+        updateUIStatus(true);
     },
     false);
+
+function updateUIStatus(online) {
+    var img = document.getElementById("logo");
+
+    if (online)
+        img.setAttribute("src", img.getAttribute("data-online"));
+    else
+        img.setAttribute("src", img.getAttribute("data-offline"));
+}
