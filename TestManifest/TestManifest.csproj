@@ -201,6 +201,7 @@
     <Content Include="Scripts\app\charts\chart.module.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\highcharts\exporting.js" />
     <Content Include="Scripts\highcharts\highcharts.js.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\highcharts\highcharts.js" />

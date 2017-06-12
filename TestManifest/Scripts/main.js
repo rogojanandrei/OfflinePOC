@@ -28,7 +28,7 @@ function drawChart() {
         },
 
         subtitle: {
-            text: 'Source: thesolarfoundation.com'
+            text: ''
         },
 
         yAxis: {
