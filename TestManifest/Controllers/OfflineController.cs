@@ -11,34 +11,26 @@ namespace TestManifest.Controllers
             return View();
         }
 
-        public ActionResult Report()
-        {
-            return View();
-        }
-
         public ActionResult Manifest()
         {
-            var manifestResult = new ManifestResult("1.0")
+            var manifestResult = new ManifestResult("1.9")
             {
                 CacheResources = new List<string>
                 {
                     Url.Action("Start", "Offline"),
-                    Url.Action("Report", "Offline"),
                     Url.Content("~/content/style.css"),
                     Url.Content("~/scripts/main.js"),
                     Url.Content("~/scripts/cache.js"),
+                    Url.Content("~/scripts/highcharts/highcharts.js"),
+                    Url.Content("~/scripts/highcharts/exporting.js"),
                     Url.Content("~/content/images/logo_offline.png"),
-                    Url.Content("~/content/images/logo_online.png"),
-                    //"https://code.highcharts.com/highcharts.js",
-                    //"https://code.highcharts.com/modules/exporting.js"
-                     Url.Content("~/scripts/highcharts/highcharts.js"),
-                      Url.Content("~/scripts/highcharts/exporting.js"),
-                },
-                NetworkResources = new[] {Url.Action("Index", "Home")},
-                FallbackResources =
-                {
-                    {Url.Content("~/content/images/logo_online.png"), Url.Content("~/content/images/logo_offline.png") }
+                    Url.Content("~/content/images/logo_online.png")
                 }
+                //NetworkResources = new[] {Url.Action("Index", "Home")},
+                //FallbackResources =
+                //{
+                //    {Url.Content("~/content/images/logo_online.png"), Url.Content("~/content/images/logo_offline.png") }
+                //}
             };
             return manifestResult;
         }
