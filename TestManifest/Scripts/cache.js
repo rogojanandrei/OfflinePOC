@@ -1,60 +1,40 @@
-﻿// Convenience array of status values
-var cacheStatusValues = [];
-cacheStatusValues[0] = 'uncached';
-cacheStatusValues[1] = 'idle';
-cacheStatusValues[2] = 'checking';
-cacheStatusValues[3] = 'downloading';
-cacheStatusValues[4] = 'updateready';
-cacheStatusValues[5] = 'obsolete';
+﻿window.applicationCache.onchecking = function (e) {
+    updateCacheStatus('Checking for a new version of the application.');
+};
+window.applicationCache.ondownloading = function (e) {
+    updateCacheStatus('Downloading a new offline version of the application');
+};
 
-// Listeners for all possible events
-var cache = window.applicationCache;
-cache.addEventListener('cached', logEvent, false);
-cache.addEventListener('checking', logEvent, false);
-cache.addEventListener('downloading', logEvent, false);
-cache.addEventListener('error', logEvent, false);
-cache.addEventListener('noupdate', logEvent, false);
-cache.addEventListener('obsolete', logEvent, false);
-cache.addEventListener('progress', logEvent, false);
-cache.addEventListener('updateready', logEvent, false);
+window.applicationCache.oncached = function (e) {
+    updateCacheStatus('The application is available offline.');
+};
 
-// Log every event to the console
-function logEvent(e) {
-    var online, status, type, message;
-    online = (isOnline()) ? 'yes' : 'no';
-    status = cacheStatusValues[cache.status];
-    type = e.type;
-    message = 'online: ' + online;
-    message+= ', event: ' + type;
-    message+= ', status: ' + status;
-    if (type == 'error' && navigator.onLine) {
-        message+= ' There was an unknown error, check your Cache Manifest.';
-    }
-    log(message);
-}
+window.applicationCache.onerror = function (e) {
+    updateCacheStatus('Something went wrong while updating the offline version of the application. It will not be available offline.');
+};
 
-function log(s) {
-    console.log(s);
-}
+window.applicationCache.onupdateready = function (e) {
+    window.applicationCache.swapCache();
+    updateCacheStatus('The application was updated. Refresh for the changes to take place.');
+};
 
-function isOnline() {
-    return navigator.onLine;
-}
+window.applicationCache.onnoupdate = function (e) {
+    updateCacheStatus('The application is also available offline.');
+};
 
-// Swap in newly download files when update is ready
-cache.addEventListener('updateready', function(e){
-        // Don't perform "swap" if this is the first cache
-        if (cacheStatusValues[cache.status] != 'idle') {
-            cache.swapCache();
-            log('Swapped/updated the Cache Manifest.');
-        }
-    }
-    , false);
+window.applicationCache.onobsolete = function (e) {
+    updateCacheStatus('The application cannot be updated, no manifest file was found.');
+};
 
-// These two functions check for updates to the manifest file
-function checkForUpdates(){
-    cache.update();
-}
-function autoCheckForUpdates(){
-    setInterval(function(){cache.update()}, 10000);
+window.applicationCache.onprogress = function (e) {
+    var message = 'Downloading offline resources.. ';
+    if (e.lengthComputable) {
+        updateCacheStatus(message + Math.round(e.loaded / e.total * 100) + '%');
+    } else {
+        updateCacheStatus(message);
+    };
+};
+
+function  updateCacheStatus(message) {
+    console.log(message);
 }
