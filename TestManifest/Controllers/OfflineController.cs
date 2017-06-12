@@ -25,12 +25,12 @@ namespace TestManifest.Controllers
                     Url.Content("~/scripts/highcharts/exporting.js"),
                     Url.Content("~/content/images/logo_offline.png"),
                     Url.Content("~/content/images/logo_online.png")
+                },
+                NetworkResources = new[] { Url.Action("Index", "Home") },
+                FallbackResources =
+                {
+                    {Url.Content("~/content/images/logo_online.png"), Url.Content("~/content/images/logo_offline.png") }
                 }
-                //NetworkResources = new[] {Url.Action("Index", "Home")},
-                //FallbackResources =
-                //{
-                //    {Url.Content("~/content/images/logo_online.png"), Url.Content("~/content/images/logo_offline.png") }
-                //}
             };
             return manifestResult;
         }

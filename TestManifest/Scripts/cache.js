@@ -1,4 +1,8 @@
-﻿window.applicationCache.onchecking = function (e) {
+﻿function updateCacheStatus(message) {
+    console.log(message);
+}
+
+window.applicationCache.onchecking = function (e) {
     updateCacheStatus('Checking for a new version of the application.');
 };
 window.applicationCache.ondownloading = function (e) {
@@ -34,7 +38,3 @@ window.applicationCache.onprogress = function (e) {
         updateCacheStatus(message);
     };
 };
-
-function  updateCacheStatus(message) {
-    console.log(message);
-}
