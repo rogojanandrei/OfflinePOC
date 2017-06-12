@@ -133,7 +133,6 @@ D:\Git\OfflinePOC\TestManifest\bin\Microsoft.Owin.Security.OAuth.xml
 D:\Git\OfflinePOC\TestManifest\bin\Microsoft.Owin.Security.Google.xml
 D:\Git\OfflinePOC\TestManifest\bin\Microsoft.Owin.Security.Twitter.xml
 D:\Git\OfflinePOC\TestManifest\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-D:\Git\OfflinePOC\TestManifest\obj\Debug\TestManifest.csprojResolveAssemblyReference.cache
 D:\Git\OfflinePOC\TestManifest\obj\Debug\TestManifest.dll
 D:\Git\OfflinePOC\TestManifest\obj\Debug\TestManifest.pdb
 D:\Work\POC\OfflinePOC\TestManifest\bin\roslyn\csc.exe

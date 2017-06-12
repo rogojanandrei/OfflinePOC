@@ -17,8 +17,9 @@
          data-online="@Url.Content("~/Content/images/logo_online.png")"
          data-offline="@Url.Content("~/Content/images/logo_offline.png")"/>
     <br/>
-    @Html.ActionLink("Report", "Report")
 </div>
+<script type="text/javascript">
+    updateUIStatus(navigator.onLine);
+</script>
 </body>
 </html>
-@Scripts.Render("~/bundles/jquery")
