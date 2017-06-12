@@ -13,8 +13,10 @@
 </head>
 <body>
 <div>
-    <img id="logo" src="@Url.Content("~/Content/images/logo_online.png")" />
-    This is where it starts
+    <img id="logo" src="@Url.Content("~/Content/images/logo_online.png")"
+         data-online="@Url.Content("~/Content/images/logo_online.png")"
+         data-offline="@Url.Content("~/Content/images/logo_offline.png")"/>
+    <br/>
     @Html.ActionLink("Report", "Report")
 </div>
 </body>

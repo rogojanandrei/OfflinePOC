@@ -1,11 +1,13 @@
-﻿window.addEventListener('offline',
-    function (e) {
-        document.getElementById("logo").setAttribute("src", "/TestManifest/Content/images/logo_offline.png");
+﻿window.addEventListener("offline",
+    function(e) {
+        var img = document.getElementById("logo");
+        img.setAttribute("src", img.getAttribute("data-offline"));
     },
     false);
 
-window.addEventListener('online',
-    function (e) {
-        document.getElementById("logo").setAttribute("src", "/TestManifest/Content/images/logo_online.png");
+window.addEventListener("online",
+    function(e) {
+        var img = document.getElementById("logo");
+        img.setAttribute("src", img.getAttribute("data-online"));
     },
     false);
