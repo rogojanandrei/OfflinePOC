@@ -26,6 +26,7 @@ namespace TestManifest.Controllers
                     Url.Action("Report", "Offline"),
                     Url.Content("~/content/style.css"),
                     Url.Content("~/scripts/main.js"),
+                    Url.Content("~/scripts/cache.js"),
                     Url.Content("~/content/images/logo_offline.png"),
                     Url.Content("~/content/images/logo_online.png"),
                     //"https://code.highcharts.com/highcharts.js",
