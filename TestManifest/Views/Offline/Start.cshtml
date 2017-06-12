@@ -9,17 +9,23 @@
 <html manifest="@Url.Action("Manifest")">
 <head>
     <title>title</title>
-    <script src=@Url.Content("~/Scripts/main.js")></script>
 </head>
 <body>
-<div>
-    <img id="logo" src="@Url.Content("~/Content/images/logo_online.png")"
-         data-online="@Url.Content("~/Content/images/logo_online.png")"
-         data-offline="@Url.Content("~/Content/images/logo_offline.png")"/>
-    <br/>
-</div>
-<script type="text/javascript">
-    updateUIStatus(navigator.onLine);
-</script>
+    <div>
+        <img id="logo" src="@Url.Content("~/Content/images/logo_online.png")"
+             data-online="@Url.Content("~/Content/images/logo_online.png")"
+             data-offline="@Url.Content("~/Content/images/logo_offline.png")" />
+        <br />
+        <br />
+        <br />
+        <div id="container"></div>
+    </div>
+    <script src=@Url.Content("~/Scripts/main.js")></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script type="text/javascript">
+        updateUIStatus(navigator.onLine);
+        drawChart();
+    </script>
 </body>
 </html>
