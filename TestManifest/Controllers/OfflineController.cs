@@ -13,7 +13,7 @@ namespace TestManifest.Controllers
 
         public ActionResult Manifest()
         {
-            var manifestResult = new ManifestResult("1.9")
+            var manifestResult = new ManifestResult("1.2")
             {
                 CacheResources = new List<string>
                 {
