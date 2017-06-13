@@ -18,7 +18,15 @@
         <br />
         <br />
         <br />
-        <div id="container" data-api-url="@Url.Action("GetData","Offline")"></div>
+        <div id="container" data-api-url="@Url.Action("GetData", "Offline")"></div>
+        <select id="noYears">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4" selected>4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+        </select>
     </div>
     <script src=@Url.Content("~/bundles/jquery")></script>
     <script src=@Url.Content("~/scripts/main.js")></script>

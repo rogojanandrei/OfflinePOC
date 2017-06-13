@@ -1,4 +1,8 @@
-﻿window.addEventListener("offline",
+﻿$("#noYears").on("change", function() {
+    drawChart();
+});
+
+window.addEventListener("offline",
     function (e) {
         updateUIStatus(false);
     },
@@ -21,7 +25,14 @@ function updateUIStatus(online) {
 }
 
 function drawChart() {
-    var chartData = JSON.parse(localStorage.getItem("chartData"));
+    var noYears = 1 * $("#noYears").val();
+    var savedData = JSON.parse(localStorage.getItem("chartData"));
+    $.each(savedData, function(key, item) {
+        if(item.data !== [] && item.data !== null)
+            item.data.splice(noYears, item.data.length - noYears);
+    });
+    var chartData = savedData;
+
     Highcharts.chart('container', {
 
         title: {
@@ -31,7 +42,9 @@ function drawChart() {
         subtitle: {
             text: ''
         },
-
+        xAxis: {
+            allowDecimals: false
+        },
         yAxis: {
             title: {
                 text: 'Number of Employees'
