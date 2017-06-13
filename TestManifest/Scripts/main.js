@@ -1,11 +1,11 @@
 ﻿window.addEventListener("offline",
-    function(e) {
+    function (e) {
         updateUIStatus(false);
     },
     false);
 
 window.addEventListener("online",
-    function(e) {
+    function (e) {
         updateUIStatus(true);
     },
     false);
@@ -15,12 +15,13 @@ function updateUIStatus(online) {
 
     if (online) {
         img.setAttribute("src", img.getAttribute("data-online"));
-        
+
     } else
         img.setAttribute("src", img.getAttribute("data-offline"));
 }
 
 function drawChart() {
+    var chartData = JSON.parse(localStorage.getItem("chartData"));
     Highcharts.chart('container', {
 
         title: {
@@ -41,29 +42,37 @@ function drawChart() {
             align: 'right',
             verticalAlign: 'middle'
         },
-
+        
         plotOptions: {
             series: {
                 pointStart: 2010
             }
         },
-
-        series: [{
-            name: 'Installation',
-            data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]
-        }, {
-            name: 'Manufacturing',
-            data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434]
-        }, {
-            name: 'Sales & Distribution',
-            data: [11744, 17722, 16005, 19771, 20185, 24377, 32147, 39387]
-        }, {
-            name: 'Project Development',
-            data: [null, null, 7988, 12169, 15112, 22452, 34400, 34227]
-        }, {
-            name: 'Other',
-            data: [12908, 5948, 8105, 11248, 8989, 11816, 18274, 18111]
-        }]
+        series: chartData
 
     });
+
+}
+
+function loadData(online) {
+
+    if (localStorage.getItem("chartData") === null) {
+
+        if (!online) {
+            alert("cannot load data while offline");
+        }
+
+        var url = $("#container").attr("data-api-url");
+        $.getJSON(url)
+            .done(function(json) {
+                localStorage.setItem("chartData", JSON.stringify(json));
+                drawChart();
+            })
+            .fail(function(jqxhr, textStatus, error) {
+                var err = textStatus + ", " + error;
+                alert("Request Failed: " + err);
+            });
+    } else {
+        drawChart();
+    }
 }

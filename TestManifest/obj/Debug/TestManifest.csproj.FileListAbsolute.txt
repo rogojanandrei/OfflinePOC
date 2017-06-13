@@ -204,3 +204,9 @@ D:\Git\OfflinePOC\TestManifest\bin\Microsoft.Owin.Security.Twitter.xml
 D:\Git\OfflinePOC\TestManifest\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\Git\OfflinePOC\TestManifest\obj\Debug\TestManifest.dll
 D:\Git\OfflinePOC\TestManifest\obj\Debug\TestManifest.pdb
+D:\Work\POC\OfflinePOC\TestManifest\bin\System.Net.Http.Formatting.dll
+D:\Work\POC\OfflinePOC\TestManifest\bin\System.Web.Http.dll
+D:\Work\POC\OfflinePOC\TestManifest\bin\System.Web.Http.WebHost.dll
+D:\Work\POC\OfflinePOC\TestManifest\bin\System.Net.Http.Formatting.xml
+D:\Work\POC\OfflinePOC\TestManifest\bin\System.Web.Http.xml
+D:\Work\POC\OfflinePOC\TestManifest\bin\System.Web.Http.WebHost.xml
