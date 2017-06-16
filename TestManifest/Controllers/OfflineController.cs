@@ -21,6 +21,7 @@ namespace TestManifest.Controllers
                     Url.Content("~/content/style.css"),
                     Url.Content("~/bundles/jquery"),
                     Url.Content("~/scripts/main.js"),
+                     Url.Content("~/scripts/app/dexie.js"),
                     Url.Content("~/scripts/cache.js"),
                     Url.Content("~/scripts/highcharts/highcharts.js"),
                     Url.Content("~/scripts/highcharts/exporting.js"),
